@@ -8,7 +8,7 @@ This repository contains two Wireshark packet capture files (`.pcapng`) related 
 
 ### 1. Find the Attacker's IP in a DoS Attack
 
-- **File:** `dos_attack.pcapng`
+- **File:** `find the find attacker's IP from where dos attack is happening.pcapng`
 - **Objective:** Identify the IP address from where the Denial of Service (DoS) attack originates.
 - **Hints:**
   - Look for a high volume of repeated requests or unusual traffic patterns.
@@ -18,7 +18,7 @@ This repository contains two Wireshark packet capture files (`.pcapng`) related 
 
 ### 2. Find the Correct FTP Password
 
-- **File:** `ftp_capture.pcapng`
+- **File:** `find the correct ftp password.pcapng`
 - **Objective:** Extract the FTP login credentials (username and password) by inspecting the FTP session.
 - **Hints:**
   - Use the filter `ftp` or `tcp.port == 21` to isolate FTP packets.
