@@ -61,4 +61,4 @@ Once you find the answers:
 
 ---
 
-Feel free to raise issues or pull requests if you want to contribute or improve this repo!
+Feel free to raise issues or pull requests if you want to contribute or improve this repository!
