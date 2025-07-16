@@ -1,64 +1,85 @@
-# CTF Wireshark Challenges
+# Ethical Hacking Assignment
 
-This repository contains two Wireshark packet capture files (`.pcapng`) related to CTF challenges. The goal is to analyze these captures to solve the following problems:
-
----
-
-## Challenges
-
-### 1. Find the Attacker's IP in a DoS Attack
-
-- **File:** `find the find attacker's IP from where dos attack is happening.pcapng`
-- **Objective:** Identify the IP address from where the Denial of Service (DoS) attack originates.
-- **Hints:**
-  - Look for a high volume of repeated requests or unusual traffic patterns.
-  - Filter by suspicious protocols or packets flooding the target.
-  - Common Wireshark filters: `ip.src`, `tcp`, `udp`, or protocol-specific filters.
-  - Analyze packet timestamps and traffic distribution.
-
-### 2. Find the Correct FTP Password
-
-- **File:** `find the correct ftp password.pcapng`
-- **Objective:** Extract the FTP login credentials (username and password) by inspecting the FTP session.
-- **Hints:**
-  - Use the filter `ftp` or `tcp.port == 21` to isolate FTP packets.
-  - Look for `USER` and `PASS` commands in the FTP protocol.
-  - Credentials are typically sent in cleartext in FTP (unless FTPS).
-  - Use the "Follow TCP Stream" feature in Wireshark for easier analysis.
+This repository contains a collection of practical tasks related to ethical hacking. These tasks demonstrate the use of various tools and techniques for analyzing network traffic, decrypting encoded messages, and extracting sensitive data.
 
 ---
 
-## How to Solve
+## 📁 Assignment Tasks
 
-1. **Open the capture file in Wireshark.**
+### 1. DoS Attack – Source IP Identification
 
-2. **Apply the relevant filters to narrow down traffic.**
-
-3. **For the DoS attack:**
-   - Observe which IP is sending a suspiciously high number of packets.
-   - Check for repetitive requests or flood patterns.
-   - Identify the source IP and note it down.
-
-4. **For the FTP password:**
-   - Filter for FTP traffic.
-   - Look for login commands.
-   - Extract the username and password from the packet details or TCP stream.
-
----
-
-## Tools Required
-
-- [Wireshark](https://www.wireshark.org/) — Network protocol analyzer.
+- **Tool Used:** Wireshark  
+- **Objective:** Identify the attacker’s IP address from a DoS attack capture file.
+- **File Analyzed:** `find attacker's IP from where dos attack is happening.pcapng`
+- **Method:**
+  - Opened the capture file in Wireshark.
+  - Applied the filter: `tcp.flags.syn == 1 and tcp.flags.ack == 0`
+  - Observed a SYN flood indicating a DoS attack.
+- **Result:**
+  - **Attacker IP (Source):** `10.20.30.40`
+  - **Victim IP (Destination):** `192.168.100.128`
+  - **Type of Attack:** TCP SYN Flood
 
 ---
 
-## Submission
+### 2. FTP Password Extraction
 
-Once you find the answers:
-
-- For the DoS attack, provide the attacker's IP address.
-- For the FTP capture, provide the username and password found.
+- **Tool Used:** Wireshark  
+- **Objective:** Extract valid FTP credentials from captured network traffic.
+- **File Analyzed:** `find the correct ftp password.pcapng`
+- **Method:**
+  - Applied filter: `ftp`
+  - Observed login attempts with various credentials.
+  - Detected a successful login.
+- **Successful Login:**
+  - **Username:** `administrator`
+  - **Password:** `nepal@123`
+  - **Client IP:** `192.168.124.135`
+  - **Server IP:** `192.168.124.132`
 
 ---
 
-Feel free to raise issues or pull requests if you want to contribute or improve this repository!
+### 3. Base64 Decoding of Instruction File
+
+- **Encoding Type:** Base64  
+- **Tool Used:** Online Base64 Decoder  
+- **Input:** `solve-me-first.txt` (Base64 encoded)  
+- **Method:**
+  - Decoded file using online Base64 decoder.
+  - Revealed instructions for decryption tasks including RC4 and BCTextEncoder.
+
+---
+
+### 4. RC4 Decryption of Hexadecimal Data
+
+- **Encryption Algorithm:** RC4 (Rivest Cipher 4)
+- **Tool Used:** CrypTool  
+- **Input File:** `decrypt-me.hex`
+- **Key:** `5151`  
+- **Method:**
+  - Used CrypTool to decrypt hexadecimal data using RC4 with the provided key.
+- **Result:** Decrypted plaintext revealing sensitive bank information.
+
+---
+
+### 5. BCTextEncoder Decryption
+
+- **Tool Used:** BCTextEncoder Utility  
+- **Input File:** `decode-me.TXT`  
+- **Password:**  `k|h8@2+&P.`69L` 
+- **Method:**
+  - Used BCTextEncoder with the password to decode the encrypted message.
+- **Result:** Successfully extracted personal information.
+
+---
+
+## ✅ Conclusion
+
+This project enhanced practical cybersecurity skills through:
+- Traffic analysis using Wireshark
+- Decryption using CrypTool and BCTextEncoder
+- Base64 decoding techniques
+
+Each task contributed to a deeper understanding of how network vulnerabilities can be analyzed and exploited in ethical hacking scenarios.
+
+---
