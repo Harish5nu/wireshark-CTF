@@ -1,4 +1,4 @@
-# Ethical Hacking Assignment
+# Ethical Hacking CTF
 
 This repository contains a collection of practical tasks related to ethical hacking. These tasks demonstrate the use of various tools and techniques for analyzing network traffic, decrypting encoded messages, and extracting sensitive data.
 
